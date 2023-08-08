@@ -1,5 +1,6 @@
 var execSync = require('child_process').execSync;
 var semver = require('semver');
+var fs = require('fs');
 var path = require("path");
 const { parsePluginXml, writeJsonToXmlFile, getPluginId, parsePluginVariables, setContext } = require('../lib/utilities');
 
@@ -9,6 +10,7 @@ var minCocoapodsVersion = "^1.11.2";
 
 module.exports = function(context) {
     checkCocoapodsVersion();
+    removePodsLockFile(context);
 
     setContext(context);
 
@@ -41,4 +43,14 @@ function checkCocoapodsVersion(){
     }else if(!semver.satisfies(version, minCocoapodsVersion)){
         throw new Error("cocoapods version is out-of-date - please update to cocoapods@"+minCocoapodsVersion + " - current version: "+version);
     }
+}
+
+function removePodsLockFile(ctx) {
+    var p = path.join(ctx.opts.projectRoot, 'platforms', 'ios', "Podfile.lock");
+    if (fs.existsSync(p)) {
+        console.log("Removing Podfile.lock before plugin installation...");
+        fs.unlinkSync(p);
+    }
+}
+
 }
