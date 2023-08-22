@@ -37,27 +37,27 @@
 		</config-file>
 		<config-file target="AndroidManifest.xml" parent="application">
 			<service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService" />
-			<service android:exported="false" android:name="org.apache.cordova.firebase.FirebasePluginMessagingService">
+			<!-- <service android:exported="false" android:name="org.apache.cordova.firebase.FirebasePluginMessagingService">
 				<intent-filter>
 					<action android:name="com.google.firebase.MESSAGING_EVENT"/>
 				</intent-filter>
-			</service>
+			</service> -->
 			<receiver android:name="org.apache.cordova.firebase.OnNotificationOpenReceiver"/>
 			<activity android:name="org.apache.cordova.firebase.OnNotificationReceiverActivity" android:noHistory="true" android:excludeFromRecents="true" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true" />
-			<meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/accent" />
-			<meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+			<!-- <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/accent" /> -->
+			<!-- <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/> -->
 			<meta-data android:name="firebase_analytics_collection_enabled" android:value="$FIREBASE_ANALYTICS_COLLECTION_ENABLED" />
 			<meta-data android:name="firebase_performance_collection_enabled" android:value="$FIREBASE_PERFORMANCE_COLLECTION_ENABLED" />
 			<meta-data android:name="firebase_crashlytics_collection_enabled" android:value="$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
-			<meta-data android:name="firebase_messaging_auto_init_enabled" android:value="$FIREBASE_FCM_AUTOINIT_ENABLED" />
+			<!-- <meta-data android:name="firebase_messaging_auto_init_enabled" android:value="$FIREBASE_FCM_AUTOINIT_ENABLED" /> -->
 		</config-file>
 		<resource-file src="src/android/cordova-plugin-firebase-strings.xml" target="res/values/cordova-plugin-firebase-strings.xml" />
 		<source-file src="src/android/FirebasePlugin.java" target-dir="src/org/apache/cordova/firebase" />
-		<source-file src="src/android/OnNotificationOpenReceiver.java" target-dir="src/org/apache/cordova/firebase" />
+		<!-- <source-file src="src/android/OnNotificationOpenReceiver.java" target-dir="src/org/apache/cordova/firebase" />
 		<source-file src="src/android/OnNotificationReceiverActivity.java" target-dir="src/org/apache/cordova/firebase" />
 		<source-file src="src/android/FirebasePluginMessagingService.java" target-dir="src/org/apache/cordova/firebase" />
 		<source-file src="src/android/FirebasePluginMessageReceiver.java" target-dir="src/org/apache/cordova/firebase" />
-		<source-file src="src/android/FirebasePluginMessageReceiverManager.java" target-dir="src/org/apache/cordova/firebase" />
+		<source-file src="src/android/FirebasePluginMessageReceiverManager.java" target-dir="src/org/apache/cordova/firebase" /> -->
 		<source-file src="src/android/JavaScriptException.java" target-dir="src/org/apache/cordova/firebase"/>
 
 		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
@@ -66,11 +66,11 @@
 		<preference name="ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION" default="18.0.2" />
 		<preference name="ANDROID_PLAY_SERVICES_AUTH_VERSION" default="20.5.0" />
 		<preference name="ANDROID_FIREBASE_ANALYTICS_VERSION" default="21.2.2" />
-		<preference name="ANDROID_FIREBASE_MESSAGING_VERSION" default="23.1.2" />
+		<!-- <preference name="ANDROID_FIREBASE_MESSAGING_VERSION" default="23.1.2" /> -->
 		<preference name="ANDROID_FIREBASE_CONFIG_VERSION" default="21.4.0" />
 		<preference name="ANDROID_FIREBASE_PERF_VERSION" default="20.3.2" />
 		<preference name="ANDROID_FIREBASE_AUTH_VERSION" default="22.0.0" />
-		<preference name="ANDROID_FIREBASE_INAPPMESSAGING_VERSION" default="20.3.2" />
+		<!-- <preference name="ANDROID_FIREBASE_INAPPMESSAGING_VERSION" default="20.3.2" /> -->
 		<preference name="ANDROID_FIREBASE_FIRESTORE_VERSION" default="24.6.0" />
 		<preference name="ANDROID_FIREBASE_FUNCTIONS_VERSION" default="20.3.0" />
 		<preference name="ANDROID_FIREBASE_IID_VERSION" default="21.1.0" /> <!-- deprecated but required by firebase-messaging -->
@@ -84,12 +84,12 @@
 		<framework src="com.google.android.gms:play-services-tagmanager:$ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION" />
 		<framework src="com.google.android.gms:play-services-auth:$ANDROID_PLAY_SERVICES_AUTH_VERSION" />
 		<framework src="com.google.firebase:firebase-analytics:$ANDROID_FIREBASE_ANALYTICS_VERSION" />
-		<framework src="com.google.firebase:firebase-messaging:$ANDROID_FIREBASE_MESSAGING_VERSION" />
+		<!-- <framework src="com.google.firebase:firebase-messaging:$ANDROID_FIREBASE_MESSAGING_VERSION" /> -->
 		<framework src="com.google.firebase:firebase-config:$ANDROID_FIREBASE_CONFIG_VERSION" />
 		<framework src="com.google.firebase:firebase-perf:$ANDROID_FIREBASE_PERF_VERSION" />
 		<framework src="com.google.firebase:firebase-auth:$ANDROID_FIREBASE_AUTH_VERSION" />
-		<framework src="com.google.firebase:firebase-inappmessaging:$ANDROID_FIREBASE_INAPPMESSAGING_VERSION" />
-		<framework src="com.google.firebase:firebase-inappmessaging-display:$ANDROID_FIREBASE_INAPPMESSAGING_VERSION" />
+		<!-- <framework src="com.google.firebase:firebase-inappmessaging:$ANDROID_FIREBASE_INAPPMESSAGING_VERSION" /> -->
+		<!-- <framework src="com.google.firebase:firebase-inappmessaging-display:$ANDROID_FIREBASE_INAPPMESSAGING_VERSION" /> -->
 		<framework src="com.google.firebase:firebase-firestore:$ANDROID_FIREBASE_FIRESTORE_VERSION" />
 		<framework src="com.google.firebase:firebase-functions:$ANDROID_FIREBASE_FUNCTIONS_VERSION" />
 		<framework src="com.google.firebase:firebase-iid:$ANDROID_FIREBASE_IID_VERSION" />
